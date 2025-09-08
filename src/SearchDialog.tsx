@@ -95,7 +95,7 @@ const fetchAllLectures = async () => await Promise.all([
   (console.log('API Call 6', performance.now()), await fetchLiberalArts()),
 ]);
 
-// TODO: 이 컴포넌트에서 불필요한 연산이 발생하지 않도록 다양한 방식으로 시도해주세요.
+// TODO: 이 컴포넌트에서 불필요한 연산이 발생하지 않도록 다양한 방식으로 시도해 주세요.
 const SearchDialog = ({ searchInfo, onClose }: Props) => {
   const { setSchedulesMap } = useScheduleContext();
 
@@ -170,6 +170,7 @@ const SearchDialog = ({ searchInfo, onClose }: Props) => {
     const start = performance.now();
     console.log('API 호출 시작: ', start)
     fetchAllLectures().then(results => {
+      console.log('API 호출 완료: ', results)
       const end = performance.now();
       console.log('모든 API 호출 완료 ', end)
       console.log('API 호출에 걸린 시간(ms): ', end - start)
